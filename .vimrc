@@ -16,9 +16,10 @@ if isdirectory(expand('$HOME/.vim/bundle/Vundle.vim'))
   Plugin 'vim-scripts/netrw.vim'
   Plugin 'tpope/vim-sensible'
   Plugin 'SirVer/ultisnips'
-  Plugin 'Lokaltog/powerline'
   Plugin 'fugitive.vim'
   Plugin 'altercation/vim-colors-solarized'
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
   " Plugin 'Syntastic'
   " Plugin 'honza/vim-snippets'
 
@@ -105,15 +106,8 @@ augroup END
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
 
-" Powerline config
-" TODO: document any necessary additional setup (terminal colors?)
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-set laststatus=2
-set t_Co=256
-
 " Solarized config
+set t_Co=256
 let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
