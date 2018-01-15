@@ -47,9 +47,6 @@ set belloff=all
 set cursorline
 set background=dark
 
-" Map ; to : to cut down on chording
-nnoremap ; :
-
 " Show line numbers
 set number
 
@@ -134,3 +131,9 @@ nnoremap <silent> <expr> k ScreenMovement("k")
 nnoremap <silent> <expr> 0 ScreenMovement("0")
 nnoremap <silent> <expr> ^ ScreenMovement("^")
 nnoremap <silent> <expr> $ ScreenMovement("$")
+
+" Map ; to : to cut down on chording
+nnoremap ; :
+
+" Make escaping insert mode easier
+inoremap ;; <Esc>
