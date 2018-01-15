@@ -20,10 +20,14 @@ if isdirectory(expand('$HOME/.vim/bundle/Vundle.vim'))
   Plugin 'altercation/vim-colors-solarized'
   Plugin 'vim-airline/vim-airline'
   Plugin 'vim-airline/vim-airline-themes'
+  Plugin 'google/vim-maktaba'
+  Plugin 'google/vim-codefmt'
+  Plugin 'google/vim-glaive'
   " Plugin 'Syntastic'
   " Plugin 'honza/vim-snippets'
 
   call vundle#end()
+  call glaive#Install()
 else
   echomsg 'Vundle is not installed. You can install Vundle from'
       \ 'https://github.com/VundleVim/Vundle.vim'
