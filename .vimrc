@@ -132,8 +132,36 @@ nnoremap <silent> <expr> 0 ScreenMovement("0")
 nnoremap <silent> <expr> ^ ScreenMovement("^")
 nnoremap <silent> <expr> $ ScreenMovement("$")
 
-" Map ; to : to cut down on chording
-nnoremap ; :
+" shorten the timeout when waiting for a sequence of key presses to avoid going
+" crazy. There is no reason for it to be 1000 ms with the current mapping set
+set timeoutlen=350
 
-" Make escaping insert mode easier
-inoremap ;; <Esc>
+" I never actually want U
+nnoremap U :echo "You fool! You have caps lock enabled!"<CR>
+
+" add a convenient "replace under cursor" map
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+
+" reduce chording to get into command mode
+nnoremap ; :
+vnoremap ; :
+
+" get to beginning of line easier
+nnoremap - ^
+
+" map easier to access escape keys and enforce usage
+inoremap jk <Esc>
+vnoremap jk <Esc>
+cnoremap jk <C-C>
+
+" remind me of what I'm currently working on in vim
+" and be annoying about enforcing it
+nnoremap $a :echo "You fool! Use A or o!"<CR>
+nnoremap -i :echo "You fool! Use I!"<CR>
+nnoremap 0 :echo "You fool! Use -!"<CR>
+
+inoremap <Esc> <Esc>:echo "You fool! Escape with jk!"<CR>i
+vnoremap <Esc> <Esc>:echo "You fool! Escape with jk!"<CR>v
+cnoremap <Esc> You fool! Escape with jk!
+
+nnoremap : :echo "You fool! Enter commands with ;!" <CR>
