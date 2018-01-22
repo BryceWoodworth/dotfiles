@@ -48,3 +48,11 @@ alias tmux='tmux -2'
 
 # git super-log!
 alias gsl='git log --all --decorate --oneline --graph --color=always  --pretty=format:'\''%C(auto)%h%C(auto)%d %s %C(cyan)(%aN, %ar)'\'
+
+up () {
+       declare -i d=${@:-1}
+       (($d < 0)) && (
+               echo "up: Error: negative value provided" >&2
+       ) && return 1
+       cd "$(pwd | sed -E 's;(/[^/]*){0,'$d'}$;;')/"
+}
