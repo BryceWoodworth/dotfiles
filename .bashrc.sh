@@ -8,6 +8,7 @@ shopt -s checkwinsize
 set -o vi
 
 # Disable XOFF/XON (so CTRL-s doesn't make vim hang)
+# (this doesn't seem to work on most modern OSes for some reason)
 stty -ixon
 
 # lesspipe makes less work better with binary/compressed/etc files
@@ -55,4 +56,13 @@ up () {
                echo "up: Error: negative value provided" >&2
        ) && return 1
        cd "$(pwd | sed -E 's;(/[^/]*){0,'$d'}$;;')/"
+}
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Convenient timer with alert
+timer() {
+  sleep $1 && alert &
 }
