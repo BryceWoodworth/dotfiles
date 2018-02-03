@@ -150,8 +150,9 @@ vnoremap ; :
 nnoremap - ^
 
 " map easier to access escape keys and enforce usage
+" (I use q in visual mode due to habits from tmux)
 inoremap jk <Esc>
-vnoremap jk <Esc>
+vnoremap q <Esc>
 cnoremap jk <C-C>
 
 " remind me of what I'm currently working on in vim
@@ -161,7 +162,7 @@ nnoremap -i :echo "You fool! Use I!"<CR>
 nnoremap 0 :echo "You fool! Use -!"<CR>
 
 inoremap <Esc> <Esc>:echo "You fool! Escape with jk!"<CR>i
-vnoremap <Esc> <Esc>:echo "You fool! Escape with jk!"<CR>v
+vnoremap <Esc> <Esc>:echo "You fool! Escape with q!"<CR>v
 cnoremap <Esc> You fool! Escape with jk!
 
 nnoremap : :echo "You fool! Enter commands with ;!" <CR>
