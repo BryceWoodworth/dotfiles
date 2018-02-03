@@ -72,3 +72,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 timer() {
   sleep $1 && alert &
 }
+
+# alias to kill all running jobs
+alias kill-jobs='kill $(jobs -p)'
