@@ -62,9 +62,8 @@ syntax enable
 " Set comma s the leader
 let mapleader=','
 
-" Highlight characters over column 100
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%101v.\+/
+" Mild highlight on column 100
+set cc=100
 
 " Don't jump on *
 nnoremap * :keepjumps normal! mi*`i<CR>
@@ -155,14 +154,16 @@ inoremap jk <Esc>
 vnoremap q <Esc>
 cnoremap jk <C-C>
 
+" add a file-movement command that makes it less annoying to work
+" in vim buffers spread over multiple terminals (as in tmux)
+command! -nargs=1 -complete=file E bd | e <args>
+
 " remind me of what I'm currently working on in vim
 " and be annoying about enforcing it
 nnoremap $a :echo "You fool! Use A or o!"<CR>
 nnoremap -i :echo "You fool! Use I!"<CR>
 nnoremap 0 :echo "You fool! Use -!"<CR>
 
-inoremap <Esc> <Esc>:echo "You fool! Escape with jk!"<CR>i
-vnoremap <Esc> <Esc>:echo "You fool! Escape with q!"<CR>v
-cnoremap <Esc> You fool! Escape with jk!
-
 nnoremap : :echo "You fool! Enter commands with ;!" <CR>
+
+nnoremap *N *N:echo "did you mean gd?"<CR>
