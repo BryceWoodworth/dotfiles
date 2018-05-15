@@ -162,7 +162,6 @@ command! -nargs=1 -complete=file E bd | e <args>
 " and be annoying about enforcing it
 nnoremap $a :echo "You fool! Use A or o!"<CR>
 nnoremap -i :echo "You fool! Use I!"<CR>
-nnoremap 0 :echo "You fool! Use -!"<CR>
 
 nnoremap : :echo "You fool! Enter commands with ;!" <CR>
 

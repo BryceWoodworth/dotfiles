@@ -54,7 +54,9 @@ vimgitshow() { git show "$1" | vim - "+set filetype=${1##*.}"; }
 alias tmux='tmux -2'
 
 # git super-log!
-alias gsl='git log --all --decorate --oneline --graph --color=always  --pretty=format:'\''%C(auto)%h%C(auto)%d %s %C(cyan)(%aN, %ar)'\'
+gsl() {
+  git log --all --decorate --oneline --graph --color=always  --pretty=format:'%C(auto)%h%C(auto)%d %s %C(cyan)(%aN, %ar)'
+}
 
 up () {
        declare -i d=${@:-1}
@@ -70,8 +72,10 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # Convenient timer with alert
 timer() {
-  sleep $1 && alert &
+  sleep $1 && clear && alert &
 }
 
 # alias to kill all running jobs
-alias kill-jobs='kill $(jobs -p)'
+kill-jobs() {
+  kill $(jobs -p)
+}
