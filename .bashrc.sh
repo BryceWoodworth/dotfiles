@@ -57,6 +57,7 @@ alias tmux='tmux -2'
 gsl() {
   git log --all --decorate --oneline --graph --color=always  --pretty=format:'%C(auto)%h%C(auto)%d %s %C(cyan)(%aN, %ar)'
 }
+export -f gsl
 
 up () {
        declare -i d=${@:-1}
@@ -65,6 +66,7 @@ up () {
        ) && return 1
        cd "$(pwd | sed -E 's;(/[^/]*){0,'$d'}$;;')/"
 }
+export -f up
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -74,8 +76,10 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 timer() {
   sleep $1 && clear && alert &
 }
+export -f timer
 
 # alias to kill all running jobs
 kill-jobs() {
   kill $(jobs -p)
 }
+export -f kill-jobs
