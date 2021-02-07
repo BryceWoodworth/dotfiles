@@ -83,3 +83,13 @@ kill-jobs() {
   kill $(jobs -p)
 }
 export -f kill-jobs
+
+WD="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+MACHINE_CONFIG_GIT=$WD/permachine/$(hostname).incl
+MACHINE_CONFIG_LOCAL=~/$(hostname).incl
+
+for CONFIG in "${MACHINE_CONFIG_GIT}" "${MACHINE_CONFIG_LOCAL}"; do
+    if [ -f "${CONFIG}" ]; then
+        source "$CONFIG"
+    fi
+done
