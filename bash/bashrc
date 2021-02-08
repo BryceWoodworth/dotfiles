@@ -84,6 +84,12 @@ kill-jobs() {
 }
 export -f kill-jobs
 
+# history settings
+HISTCONTROL=ignoreboth
+shopt -s histappend
+HISTSIZE=1000
+HISTFILESIZE=2000
+
 WD="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 MACHINE_CONFIG_GIT=$WD/permachine/$(hostname).incl
 MACHINE_CONFIG_LOCAL=~/$(hostname).incl
